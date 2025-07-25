@@ -1,69 +1,46 @@
-name: Matery Hexo Deploy
+name: Hexo Deploy
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
-          submodules: 'recursive'
-          fetch-depth: 0
+          ref: master
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v1
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '18'
 
-      - name: Install dependencies
-        run: |
-          npm install hexo-cli -g
-          npm ci --legacy-peer-deps
-          npm install hexo-renderer-sass --save
-          npm install hexo-renderer-jade --save
-          npm rebuild node-sass
-
-      - name: Setup Matery theme
-        run: |
-          # 创建必要目录
-          mkdir -p source/images
-          touch source/images/thumbnail.png
-          
-          # 创建主题配置
-          if [ ! -f "_config.matery.yml" ]; then
-            if [ -f "themes/matery/_config.yml" ]; then
-              cp themes/matery/_config.yml _config.matery.yml
-            elif [ -d "node_modules/hexo-theme-matery" ]; then
-              cp node_modules/hexo-theme-matery/_config.yml _config.matery.yml
-            else
-              echo "::error::Matery theme not found!"
-              exit 1
-            fi
-          fi
-
-      - name: Setup deployment
+      - name: Setup Hexo
         env:
-          DEPLOY_KEY: ${{ secrets.TOKEN }}
+          ACTION_DEPLOY_KEY: ${{ secrets.SSH_KEY }}
         run: |
           mkdir -p ~/.ssh/
-          echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "2022944916@qq.com"
           git config --global user.name "AnowoSupian"
-
-      - name: Build site
+          git config --global init.defaultBranch master
+          npm install hexo-cli -g
+          npm install
+          # npm install hexo-butterfly-extjs
+          # npm install hexo-tag-steamgame --save
+          hexo -v
+      - name: Deploy
         run: |
           hexo clean
-          NODE_OPTIONS="--max_old_space_size=4096" hexo generate --debug
-
-      - name: Deploy
-        run: hexo deploy --generate
+          # hexo b -u
+          # hexo st -u
+          hexo d -g --message "Deploy with Github Action"
