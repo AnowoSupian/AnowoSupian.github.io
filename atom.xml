@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-07-25T09:34:06.509Z</updated>
+  <updated>2025-07-25T16:51:03.497Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>my-first-post</title>
+    <title>my-test-blog</title>
+    <link href="http://example.com/2025/07/26/my-test-blog-1/"/>
+    <id>http://example.com/2025/07/26/my-test-blog-1/</id>
+    <published>2025-07-25T16:51:03.000Z</published>
+    <updated>2025-07-25T16:51:03.497Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>my-test-blog</title>
+    <link href="http://example.com/2025/07/26/my-test-blog/"/>
+    <id>http://example.com/2025/07/26/my-test-blog/</id>
+    <published>2025-07-25T16:30:36.000Z</published>
+    <updated>2025-07-25T16:59:58.302Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    cout&lt;&lt;<span class="string">"lgj is SB"</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇文章</title>
     <link href="http://example.com/2025/07/25/my-first-post/"/>
     <id>http://example.com/2025/07/25/my-first-post/</id>
     <published>2025-07-25T09:33:27.000Z</published>
-    <updated>2025-07-25T09:34:06.509Z</updated>
+    <updated>2025-07-25T10:17:37.944Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></tbody></table></figure>]]></content>
     
