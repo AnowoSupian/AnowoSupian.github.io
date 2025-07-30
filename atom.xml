@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Supian_owo</title>
+  
+  <subtitle>   </subtitle>
+  <link href="https://anowosupian.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://anowosupian.github.io/"/>
+  <updated>2025-07-30T15:26:22.447Z</updated>
+  <id>https://anowosupian.github.io/</id>
+  
+  <author>
+    <name>Supian_owo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test2</title>
+    <link href="https://anowosupian.github.io/2025/07/28/test2/"/>
+    <id>https://anowosupian.github.io/2025/07/28/test2/</id>
+    <published>2025-07-28T12:14:12.000Z</published>
+    <updated>2025-07-30T15:26:22.447Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Deploy Test</title>
+    <link href="https://anowosupian.github.io/2025/07/27/Deploy-Test/"/>
+    <id>https://anowosupian.github.io/2025/07/27/Deploy-Test/</id>
+    <published>2025-07-27T18:23:33.000Z</published>
+    <updated>2025-07-30T15:26:22.447Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>My test post</title>
+    <link href="https://anowosupian.github.io/2025/07/27/My-test-post/"/>
+    <id>https://anowosupian.github.io/2025/07/27/My-test-post/</id>
+    <published>2025-07-27T18:19:10.000Z</published>
+    <updated>2025-07-30T15:26:22.447Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>my-test-blog</title>
+    <link href="https://anowosupian.github.io/2025/07/25/my-test-blog-1/"/>
+    <id>https://anowosupian.github.io/2025/07/25/my-test-blog-1/</id>
+    <published>2025-07-25T16:51:03.000Z</published>
+    <updated>2025-07-30T15:26:22.447Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>my-test-blog</title>
+    <link href="https://anowosupian.github.io/2025/07/25/my-test-blog/"/>
+    <id>https://anowosupian.github.io/2025/07/25/my-test-blog/</id>
+    <published>2025-07-25T16:30:36.000Z</published>
+    <updated>2025-07-30T15:26:22.447Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    cout&lt;&lt;<span class="string">"lgj is SB"</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇文章</title>
+    <link href="https://anowosupian.github.io/2025/07/25/my-first-post/"/>
+    <id>https://anowosupian.github.io/2025/07/25/my-first-post/</id>
+    <published>2025-07-25T09:33:27.000Z</published>
+    <updated>2025-07-30T15:26:22.447Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Hello-World&quot;&gt;&lt;a href=&quot;#Hello-World&quot; class=&quot;headerlink&quot; title=&quot;Hello World&quot;&gt;&lt;/a&gt;Hello World&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;tab</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

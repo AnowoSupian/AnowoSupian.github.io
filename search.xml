@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>test2</title>
+      <link href="/2025/07/28/test2/"/>
+      <url>/2025/07/28/test2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Deploy Test</title>
+      <link href="/2025/07/27/Deploy-Test/"/>
+      <url>/2025/07/27/Deploy-Test/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>My test post</title>
+      <link href="/2025/07/27/My-test-post/"/>
+      <url>/2025/07/27/My-test-post/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>my-test-blog</title>
+      <link href="/2025/07/25/my-test-blog-1/"/>
+      <url>/2025/07/25/my-test-blog-1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>my-test-blog</title>
+      <link href="/2025/07/25/my-test-blog/"/>
+      <url>/2025/07/25/my-test-blog/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    cout&lt;&lt;<span class="string">"lgj is SB"</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的第一篇文章</title>
+      <link href="/2025/07/25/my-first-post/"/>
+      <url>/2025/07/25/my-first-post/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">"Hello World!"</span>)</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
