@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Supian_owo</title>
+  
+  <subtitle>   </subtitle>
+  <link href="https://anowosupian.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://anowosupian.github.io/"/>
+  <updated>2025-08-16T11:30:29.449Z</updated>
+  <id>https://anowosupian.github.io/</id>
+  
+  <author>
+    <name>Supian_owo</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>值域分块</title>
+    <link href="https://anowosupian.github.io/2025/08/11/%E5%80%BC%E5%9F%9F%E5%88%86%E5%9D%97/"/>
+    <id>https://anowosupian.github.io/2025/08/11/%E5%80%BC%E5%9F%9F%E5%88%86%E5%9D%97/</id>
+    <published>2025-08-11T18:01:14.000Z</published>
+    <updated>2025-08-16T11:30:29.449Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>###值域分块</p><p>在写莫队的时候遇到了这个，感觉是一个好东西，值得学习</p><p>这个可能需要我们学习过分块，这样才会对值域分块有更好的理解</p><p>值域分块，适用于查询[a,b]区间内数的个数 或者 种类的</p><p>####其一：O(Nsqrt(N))修改 O(1) 查询</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css&quot;&gt;&lt;p&gt;###值域分块&lt;/p&gt;
+&lt;p&gt;在写莫队的时</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>莫队算法</title>
+    <link href="https://anowosupian.github.io/2025/08/10/%E8%8E%AB%E9%98%9F%E7%AE%97%E6%B3%95/"/>
+    <id>https://anowosupian.github.io/2025/08/10/%E8%8E%AB%E9%98%9F%E7%AE%97%E6%B3%95/</id>
+    <published>2025-08-10T05:07:49.000Z</published>
+    <updated>2025-08-16T11:30:29.449Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h3 id="简单询问莫队"><a class="markdownIt-Anchor" href="#简单询问莫队"></a> 简单询问莫队</h3><p>其实一开始做数据结构的时候，我就想过，能不能像滑动窗口一样，从已知区间答案推导到另一个区间</p><p>不过那个时候想的是O(N^2)的思路，如今，莫队，用一个更好的暴力的时间复杂度证明了，这种方法是可行的</p><p>我们可以按照<strong>l,r的关键字</strong>排序，即对于区间[l,r]，以 l 所在块的编号为第一关键字，r 为第二关键字从小到大排序。</p><p><strong>时间复杂度解释:</strong></p><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/b80mkc2o.png" alt=""></p><p>图1是按照x从小到大排序，也就是我们初学的时候想的思路，震荡幅度足够大时，可能达到O(N^2)</p><p>图2时莫队算法排序后的路径，以x轴分成多个块，每个块按照y坐标排序，那么y的幅度最大为块长，时间复杂度可以降到O(N * sqrt(N)) 设定块长为sqrt(n)，带修莫队的话，建议上到pow(N,2.0/3.0)</p><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/oqdz6zyg.png" alt=""></p><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(l &gt; q[i].l) <span class="built_in">add</span>(a[--l]);</span><br><span class="line"><span class="keyword">while</span>(r &lt; q[i].r) <span class="built_in">add</span>(a[++r]);</span><br><span class="line"><span class="keyword">while</span>(l &lt; q[i].l) <span class="built_in">del</span>(a[l++]);</span><br><span class="line"><span class="keyword">while</span>(r &gt; q[i].r) <span class="built_in">del</span>(a[r--]);</span><br></pre></td></tr></tbody></table></figure><p>这些区间的位置，我们都可以通过O(1)方式获得</p><p>例题:<a href="https://www.luogu.com.cn/problem/P2709">P2709 小B的询问</a></p><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//P2709</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">ll B,n,m,k,ans;</span><br><span class="line">ll a[<span class="number">50010</span>];</span><br><span class="line">ll K[<span class="number">50010</span>];</span><br><span class="line">ll Ans[<span class="number">50010</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Q</span>{</span><br><span class="line">    ll l;</span><br><span class="line">    ll r;</span><br><span class="line">    ll i;</span><br><span class="line">}q[<span class="number">50010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(Q a,Q b)</span></span>{</span><br><span class="line">    <span class="keyword">if</span>(a.l/B != b.l/B) <span class="keyword">return</span> a.l &lt; b.l;</span><br><span class="line">    <span class="keyword">return</span> a.r &lt; b.r;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(ll x)</span></span>{</span><br><span class="line">    ans += <span class="number">2</span>*K[x] + <span class="number">1</span>;</span><br><span class="line">    K[x] ++;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">del</span><span class="params">(ll x)</span></span>{</span><br><span class="line">    ans += <span class="number">-2</span>*K[x] + <span class="number">1</span>;</span><br><span class="line">    K[x] --;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>),cin.<span class="built_in">tie</span>(<span class="number">0</span>),cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line">    B = <span class="built_in">sqrt</span>(n); <span class="comment">//块长</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++) cin&gt;&gt;a[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=m; i++){</span><br><span class="line">        cin&gt;&gt;q[i].l&gt;&gt;q[i].r;</span><br><span class="line">        q[i].i = i;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(q + <span class="number">1</span>, q + <span class="number">1</span> + m, cmp);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for(int i=1; i&lt;=m; i++){</span></span><br><span class="line">    <span class="comment">//     cerr&lt;&lt;q[i].l&lt;&lt;" "&lt;&lt;q[i].r&lt;&lt;" "&lt;&lt;q[i].i&lt;&lt;endl;</span></span><br><span class="line">    <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>, l = <span class="number">1</span>, r = <span class="number">0</span>; i &lt;= m; i ++){</span><br><span class="line">        <span class="keyword">while</span>(l &gt; q[i].l) <span class="built_in">add</span>(a[--l]);</span><br><span class="line">        <span class="keyword">while</span>(r &lt; q[i].r) <span class="built_in">add</span>(a[++r]);</span><br><span class="line">        <span class="keyword">while</span>(l &lt; q[i].l) <span class="built_in">del</span>(a[l++]);</span><br><span class="line">        <span class="keyword">while</span>(r &gt; q[i].r) <span class="built_in">del</span>(a[r--]);</span><br><span class="line">        Ans[q[i].i] = ans;</span><br><span class="line">        <span class="comment">// cerr&lt;&lt;ans&lt;&lt;endl;</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++) cout&lt;&lt;Ans[i]&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css&quot;&gt;&lt;h3 id=&quot;简单询问莫队&quot;&gt;&lt;a class</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数模练习-Problem无人机遂行编队飞行中的纯方位无源定位</title>
+    <link href="https://anowosupian.github.io/2025/08/04/%E6%95%B0%E6%A8%A1%E7%BB%83%E4%B9%A0-Problem%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%81%82%E8%A1%8C%E7%BC%96%E9%98%9F%E9%A3%9E%E8%A1%8C%E4%B8%AD%E7%9A%84%E7%BA%AF%E6%96%B9%E4%BD%8D%E6%97%A0%E6%BA%90%E5%AE%9A%E4%BD%8D/"/>
+    <id>https://anowosupian.github.io/2025/08/04/%E6%95%B0%E6%A8%A1%E7%BB%83%E4%B9%A0-Problem%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%81%82%E8%A1%8C%E7%BC%96%E9%98%9F%E9%A3%9E%E8%A1%8C%E4%B8%AD%E7%9A%84%E7%BA%AF%E6%96%B9%E4%BD%8D%E6%97%A0%E6%BA%90%E5%AE%9A%E4%BD%8D/</id>
+    <published>2025-08-04T13:47:26.000Z</published>
+    <updated>2025-08-16T11:30:29.449Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h3 id="无人机遂行编队飞行中的纯方位无源定位"><a class="markdownIt-Anchor" href="#无人机遂行编队飞行中的纯方位无源定位"></a> 无人机遂行编队飞行中的纯方位无源定位</h3><p>简洁明了的人话：就是假定选圆心的那架飞机和圆上一对飞机作为已经对齐的飞机  <s>（题目也没告诉我哪些是对齐的，使得我看了好久都没搞懂要干什么）</s> <br></p><p>问了一下ds，他是重新构建了一个圆图，我觉得也很合理，我把ds的话简单概括一下，使得能更好的理解题目意思 <br></p><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/uuavou6l.png" alt=""></p><p>如图所示，就是在接收无人机（设为点P）与每一对发射无人机（设为点A和点B）连线AB形成的角度。几何上，这个夹角是点P处的角∠APB <br></p><p>那么其实可以这么说，我们假定A，B都是对齐的，那么令原点O（0,0），那么A坐标就是（R,0）那么B坐标就是（Rcosφ,Rsinφ）其中<strong>φ = 40°</strong>，因为是九个飞机均匀分布那么就是360°/9 = 40° <br></p><p>那么如果发射无人机是圆心O，A和B，那么接收无人机测量的三个夹角分别是∠1，∠2，∠3，<s>难看也给我看进去</s> <br></p><p><img src="https://cdn.luogu.com.cn/upload/image_hosting/jkxnujbi.png" alt=""></p><p>接收无人机位置P = (x,y)是未知的，但是我们知道∠1=40°，那么我们可以用<strong>40*k</strong>（其中k为正整数）的代数关系算出P点是否对齐 <br></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; type=&quot;text&amp;#x2F;css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css&quot;&gt;&lt;h3 id=&quot;无人机遂行编队飞行中的纯方位无源</summary>
+      
+    
+    
+    
+    
+    <category term="数模" scheme="https://anowosupian.github.io/tags/%E6%95%B0%E6%A8%A1/"/>
+    
+  </entry>
+  
+</feed>
