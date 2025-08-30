@@ -255,7 +255,7 @@ snowdown:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: 广东工业大学就读在校生
+  career: 广工就读在校生
   introduction:  此身为薪炬成灰，亦照大汉长明
 
 # config my projects informations in about page.
