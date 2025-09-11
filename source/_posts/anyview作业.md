@@ -3,6 +3,74 @@ title: anyview作业
 date: 2025-09-04 14:47:24
 tags: anyview
 ---
+### 2025/9/11 实验课作业要求
+
+>63:
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+
+LinkList MakeNode(ElemType x) { 
+    // Add your code here
+    LinkList F = (LinkList)malloc(sizeof(LNode));
+
+    if(F == NULL) return NULL;
+
+    F->data = x;
+    F->next = NULL;
+    return F;
+}
+
+LinkList CreateLinkList(ElemType x, ElemType y) { 
+    // Add your code here
+    LinkList F1 = MakeNode(x),
+             F2 = MakeNode(y);
+    
+    if(F1 == NULL || F2 == NULL) return NULL;
+    
+    F1->next = F2;
+
+    return F1; // This is a temporary code. Change it if necessary.
+}
+
+```
+
+>65:
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+
+LinkList MakeNode(ElemType x) { 
+    // Add your code here
+    LinkList F = (LinkList)malloc(sizeof(LNode));
+
+    if(F == NULL) return NULL;
+
+    F->data = x;
+    F->next = NULL;
+    return F;
+}
+
+LinkList CreateOrdLList(ElemType x, ElemType y) { 
+    // Add your code here
+    int tempMax = (x > y) ? x : y,
+        tempMin = (x < y) ? x : y;
+
+    LinkList F1 = MakeNode(tempMin),
+             F2 = MakeNode(tempMax);
+
+    if(F1 == NULL || F2 == NULL) return NULL;
+
+    F1->next = F2;
+
+    return F1;
+
+}
+
+```
+
 
 ### DC01PE03e
 
@@ -71,5 +139,103 @@ int main()
 ### DC01PE06
 
 ```cpp
+#include "allinclude.h"
+void Descend(int &a, int &b, int &c)
+{
+    if (a < b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+    if (a < c) {
+        int temp = a;
+        a = c;
+        c = temp;
+    }
+    if (b < c) {
+        int temp = b;
+        b = c;
+        c = temp;
+    }
+}
+
+```
+
+### DC01PE08
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+float Polynomial(int n, int a[], float x0) 
+{   // Add your code here
+    float ans = 0.0;
+    for (int i = 0; i <= n; i++) {
+        ans += a[i] * pow(x0,i);
+    }
+    return ans;
+}
+
+```
+
+### DC01PE61
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+LinkList MakeNode(ElemType x) { 
+    // Add your code here
+    LinkList F = (LinkList)malloc(sizeof(LNode));
+    if(F == NULL) return NULL;
+
+    F->data = x;
+    F->next = NULL;
+    return F;
+}
+
+```
+
+### DC01PE63
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+LinkList CreateLinkList(ElemType x, ElemType y) { 
+    // Add your code here
+    LinkList F1 = (LinkList)malloc(sizeof(LNode)),
+             F2 = (LinkList)malloc(sizeof(LNode));
+    if(F1 == NULL || F2 == NULL) return NULL;
+
+    F1->data = x;
+    F2->data = y;
+    F1->next = F2;
+    F2->next = NULL;
+
+    return F1; // This is a temporary code. Change it if necessary.
+}
+
+```
+
+### DC01PE65
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+LinkList CreateOrdLList(ElemType x, ElemType y) { 
+    // Add your code here
+    LinkList F1 = (LinkList)malloc(sizeof(LNode)),
+             F2 = (LinkList)malloc(sizeof(LNode));
+    if(F1 == NULL || F2 == NULL) return NULL;
+    int temp = (x < y) ? x : y;
+    F1->data = temp;
+
+        temp = (x > y) ? x : y;
+    F2->data = temp;
+
+    F1->next = F2;
+    F2->next = NULL;
+
+    return F1;
+
+}
 
 ```
