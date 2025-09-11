@@ -335,17 +335,42 @@ Status Pop_Sq(SqStack &S, ElemType &e) {
 #include "allinclude.h"  //DO NOT edit this line
 Status InitStack_Sq2(SqStack2 &S, int size, int inc) { 
     // Add your code here
-    if (size <= 0 || inc <= 0) return ERROR;
+    if (size <= 0 || inc <= 0) return ERROR;   //如果长度和加长不满足要求，报错
     
     S.elem = (ElemType*)malloc(size * sizeof(ElemType));
     if (S.elem == NULL) return ERROR;
 
-    S.size = size;
-    S.increment = inc;
-    S.top = S.elem;
+    S.size = size;      //构建栈长
+    S.increment = inc;  //构建加长
+    S.top = S.elem;     //top指向初始elem位置
 }
 /*
-
+typedef struct {
+    ElemType *data;     // 存储数据的数组
+    int capacity;       // 数组容量
+    int top;            // 栈顶索引
+    // 可选的函数指针，用于自定义扩容策略
+    int (*grow_policy)(int current_capacity);
+} SqStackDynamic;
+Status InitStack_Sq2(SqStack2 &S, int size, int inc) { 
+    // 检查参数有效性
+    if (size <= 0 || inc <= 0) return ERROR;
+    
+    // 分配存储空间
+    S.data = (ElemType*)malloc(size * sizeof(ElemType));
+    if (S.data == NULL) return ERROR;
+    
+    // 初始化栈属性
+    S.capacity = size;      // 设置初始容量
+    S.top = -1;             // 栈顶索引初始化为-1，表示空栈
+    
+    // 设置默认扩容策略（容量翻倍）
+    S.grow_policy = [](int current_capacity) {
+        return current_capacity * 2;
+    };
+    
+    return OK;  // 返回成功状态
+}
 */
 
 ```
