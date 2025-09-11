@@ -176,7 +176,34 @@ float Polynomial(int n, int a[], float x0)
 }
 
 ```
+### DC01PE11
+```cpp
 
+#include "allinclude.h"  //DO NOT edit this line
+Status Fibonacci(int k, int m, int &f) { 
+    // Add your code here
+    int F[500010];
+    if(k < 2 || m < 0) return ERROR;
+
+    for (int i = 0; i <= m; i++) F[i] = 0;
+
+    // if(k > m)
+    // return ERROR;
+
+    F[k-1] = 1;
+
+    for (int i = k; i <= m; i++) {
+        for (int j = i-k; j < i; j++) {
+            F[i] += F[j];
+        }
+    }
+
+    f = F[m];
+
+    return OK;
+}
+
+```
 ### DC01PE49
 ```cpp
 
@@ -259,6 +286,78 @@ LinkList CreateOrdLList(ElemType x, ElemType y) {
 
     return F1;
 
+}
+
+```
+
+### DC02PE03
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status StackEmpty_Sq(SqStack S) { 
+    // Add your code here
+    return S.top == 0 ? TRUE : FALSE;
+}
+
+```
+
+### DC02PE05
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status GetTop_Sq(SqStack S, ElemType &e) 
+{// Add your code here
+    if (S.top == 0) return ERROR;
+    e = S.elem[S.top - 1];
+    return OK;
+}
+
+```
+
+### DC02PE07
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status Pop_Sq(SqStack &S, ElemType &e) { 
+    // Add your code here
+    if (S.top == 0) return ERROR;
+    e = S.elem[-- S.top];
+    return OK;
+} 
+
+```
+
+### DC02PE11
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status InitStack_Sq2(SqStack2 &S, int size, int inc) { 
+    // Add your code here
+    if (size <= 0 || inc <= 0) return ERROR;
+    
+    S.elem = (ElemType*)malloc(size * sizeof(ElemType));
+    if (S.elem == NULL) return ERROR;
+
+    S.size = size;
+    S.increment = inc;
+    S.top = S.elem;
+}
+/*
+
+*/
+
+```
+
+### DC02PE13
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status StackEmpty_Sq2(SqStack2 S) { 
+    // Add your code here
+    return (S.top == S.elem) ? TRUE : FALSE;
 }
 
 ```
