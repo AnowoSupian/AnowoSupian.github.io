@@ -357,7 +357,48 @@ Status InitStack_Sq2(SqStack2 &S, int size, int inc) {
 #include "allinclude.h"  //DO NOT edit this line
 Status StackEmpty_Sq2(SqStack2 S) { 
     // Add your code here
-    return (S.top == S.elem) ? TRUE : FALSE;
+    return (S.top == S.elem) ? TRUE : FALSE; //判断栈顶指针是否等于栈底指针
+}
+
+```
+
+### DC02PE15
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status Push_Sq2(SqStack2 &S, ElemType e) { 
+    // Add your code here
+    if (S.top - S.elem >= S.size) {
+        ElemType *newElem = (ElemType*)realloc(S.elem, (S.size + S.increment) * sizeof(ElemType));
+        
+        if (!newElem) return ERROR; 
+        
+        S.elem = newElem;
+        S.top = S.elem + S.size; //栈顶指针更新
+        S.size += S.increment;
+    } //扩容
+
+    
+
+    *S.top = e; //入栈
+    S.top ++;
+}
+
+```
+
+### DC02PE17
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status Pop_Sq2(SqStack2 &S, ElemType &e) { 
+    // Add your code here
+    if(S.top == S.elem) return ERROR;   //判断空栈
+
+    e = *(--S.top);  //取栈元素 顺便出栈咯
+
+    return OK;
 }
 
 ```
