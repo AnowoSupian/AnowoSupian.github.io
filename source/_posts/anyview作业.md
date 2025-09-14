@@ -508,3 +508,24 @@ Status DeCQueue(CLenQueue &Q, ElemType &x){
 }  
 
 ```
+
+### DC02PE45
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+void Union(SqList &La, List Lb)
+{   
+    // Add your code here
+    int n = ListLength_Sq(Lb);
+    for (int i = 1; i <= n; i++) {
+        ElemType e;
+        GetElem_Sq(Lb, i, e);
+        if (Search_Sq(La, e) == -1) {
+            Append_Sq(La, e);
+        }
+    }
+    //O(N^2)
+}
+
+```
