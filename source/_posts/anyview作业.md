@@ -529,3 +529,247 @@ void Union(SqList &La, List Lb)
 }
 
 ```
+### DS02ES30 Main.cpp
+```cpp
+
+#include <stdio.h>
+#include "SqList.h"
+
+void printSqList(SqList L) {
+    int i = 0;
+    for (i = 0; i < L.length - 1; i++) 
+    {
+        printf("%d, ", L.elem[i]);
+    }
+    printf("%d}", L.elem[i]);
+    printf("\n");
+}
+
+void MergeList_Sq(SqList La, SqList Lb, SqList& Lc);
+int getMainElement(SqList L);
+
+int main() 
+{
+    int aa[6] = { 1, 2, 3, 4, 5, 8};
+    SqList La = createList_Sq(aa, 6);
+    int ab[6] = { 2, 5, 7, 9, 10, 12 };
+    SqList Lb = createList_Sq(ab, 6);
+
+    //Part1：两表合并
+    // 1 2 2 3 4 5 5 7 8 9 10 12
+    SqList Lc;
+    MergeList_Sq(La, Lb, Lc);
+    printf("Lc = {");
+    printSqList(Lc);
+
+    // //Part2：求序列的主元素
+    // SqList L1;
+    // int a1[7] = { 2, 6, 6, 3, 6, 8, 7 };
+    // L1 = createList_Sq(a1, 7);
+    // int result = getMainElement(L1);  //预期结果：-1
+    // printf("result = %d", result);
+
+    // SqList L2;
+    // int a2[9] = { 2, 6, 6, 3, 6, 8, 6, 7, 6 };
+    // L2 = createList_Sq(a2, 9);
+    // result = getMainElement(L2);  //预期结果：6
+    // printf("result = %d", result);
+
+    // SqList L3;
+    // int a3[8] = { 7, 7, 6, 7, 6, 7, 6, 7 };
+    // L2 = createList_Sq(a3, 8);
+    // result = getMainElement(L2);  //预期结果：7
+    // printf("result = %d", result);
+
+    return 0;
+}
+
+//练习4：将顺序表La和Lb合并为Lc
+void MergeList_Sq(SqList La, SqList Lb, SqList& Lc) 
+{
+    int i = 0, j = 0;   
+    ElemType ai, bj;
+    
+    //练习4.1：创建空表Lc 
+    InitList_Sq(Lc, La.length + Lb.length + 5, 10);
+    // if ( != OK) {
+    //     printf("Error: Failed to initialize list Lc\n");
+    //     return;
+    // }
+
+    //Add your code here 
+
+    while (i < ListLength_Sq(La) && j < ListLength_Sq(Lb) )  // 表La和Lb均非空
+    {      
+      //练习4.2：两表合并 
+      //Add your code here 
+        GetElem_Sq(La, i+1, ai);
+
+        GetElem_Sq(Lb, j+1, bj);
+
+        if(ai <= bj)  Append_Sq(Lc,ai), i++;  //顺序性
+        else Append_Sq(Lc,bj), j++;
+
+    }
+
+    //练习4.3：处理“La未空，但Lb已空”的情况
+    while (i < La.length) { 
+        GetElem_Sq(La, i+1, ai);
+        Append_Sq(Lc,ai), i++;
+       //Add your code here
+    }
+
+    //练习4.4：处理“La已空，但Lb未空”的情况
+    //Add your code here  
+    while (j < Lb.length) {
+        GetElem_Sq(Lb, j+1, bj);
+        Append_Sq(Lc,bj), j++;
+    }   
+
+}
+
+//练习5：求序列A中的主元素，如果A没有主元素，则返回-1
+int getMainElement(SqList L)
+{
+    //Add your code here
+
+    return 0; //This is tempoary code. Modify it if necessary.
+}
+
+```
+### DS02ES30
+
+```cpp
+
+#include <stdlib.h>
+#include "SqList.h"
+
+//练习1：初始化一个空的顺序表L
+Status InitList_Sq(SqList& L, int size, int inc) 
+{ 
+    //Add your code here
+    if(size<1 || inc < 1) return ERROR;
+    L.elem = (ElemType*)malloc(size*sizeof(ElemType));
+    if(L.elem == NULL) return ERROR;
+
+    L.length = 0;
+    L.size = size;
+    L.increment = inc;
+
+    return OK;
+}
+
+//练习2：获取第i个元素的值，用参数e返回该值
+Status GetElem_Sq(SqList L, int i, ElemType& e) 
+{
+    if (i < 1 || i > L.length || L.length == 0) {
+        return ERROR; //无效位置
+    }
+        
+    //Add your code here
+    e = L.elem[i - 1];
+
+
+    return OK;
+}
+
+//练习3：在顺序表L表尾添加元素e
+Status  Append_Sq(SqList& L, ElemType e) 
+{         
+
+    ElemType* newbase;
+    if (L.length >= L.size) {  // 扩容
+        //Add your code here
+        newbase = (ElemType*)realloc(L.elem, (L.size + L.increment) * sizeof(ElemType));
+        if(newbase == NULL) return ERROR;
+        L.elem = newbase;
+        L.size += L.increment;
+    }
+
+    L.elem[L.length] = e;
+    L.length++;
+    
+    return OK;
+}
+
+
+int ListLength_Sq(SqList L){
+    return L.length;
+}
+
+/**
+  * 创建一个顺序表
+  * @param a[]：数组中的每一个元素作为顺序表中的元素
+  * @param n: 数组中的长度
+  */
+SqList createList_Sq(int a[], int n)
+{
+    SqList L;
+    InitList_Sq(L, n, 10);
+    for (int i = 0; i < n; i++)
+    {
+        Append_Sq(L, a[i]);
+    }
+
+    return L;
+}
+
+```
+
+### DS02E30
+
+```cpp
+```
+
+### DS02E30  去重
+
+```cpp
+//练习4：将顺序表La和Lb合并为Lc
+void MergeList_Sq(SqList La, SqList Lb, SqList& Lc) 
+{
+    int i = 0, j = 0,k = 0;   
+    ElemType ai, bj, ck;
+    
+    //练习4.1：创建空表Lc 
+    InitList_Sq(Lc, ListLength_Sq(La) + ListLength_Sq(Lb) + 5, 10);
+    // if ( != OK) {
+    //     printf("Error: Failed to initialize list Lc\n");
+    //     return;
+    // }
+
+    //Add your code here 
+
+    while (i < ListLength_Sq(La) && j < ListLength_Sq(Lb) )  // 表La和Lb均非空
+    {      
+      //练习4.2：两表合并 
+      //Add your code here 
+        GetElem_Sq(La, i+1, ai);
+
+        GetElem_Sq(Lb, j+1, bj);
+
+        if(ai < bj ){ if(ai != Lc.elem[ListLength_Sq(Lc)-1]) Append_Sq(Lc,ai); i++;  }//顺序性
+        else {if(bj != Lc.elem[ListLength_Sq(Lc)-1])  Append_Sq(Lc,bj); j++;}
+    }
+
+
+    //练习4.3：处理“La未空，但Lb已空”的情况
+    while (i < La.length) { 
+        GetElem_Sq(La, i+1, ai);
+        if(ai != Lc.elem[ListLength_Sq(Lc)-1])
+        Append_Sq(Lc,ai); i++;
+       //Add your code here
+    }
+
+    //练习4.4：处理“La已空，但Lb未空”的情况
+    //Add your code here  
+    while (j < Lb.length) {
+        GetElem_Sq(Lb, j+1, bj);
+        if(bj != Lc.elem[ListLength_Sq(Lc)-1])
+        Append_Sq(Lc,bj); j++;
+    }   
+
+
+
+}
+
+```
