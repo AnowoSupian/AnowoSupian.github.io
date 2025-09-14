@@ -427,3 +427,84 @@ Status Pop_Sq2(SqStack2 &S, ElemType &e) {
 }
 
 ```
+
+### DC02PE23
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+int QueueLength_Sq(SqQueue Q) { 
+    // Add your code here
+    return (Q.rear - Q.front + Q.maxSize) % Q.maxSize;
+}
+
+```
+
+### DC02PE25
+
+```cpp
+#include "allinclude.h"  //DO NOT edit this line
+Status EnCQueue(CTagQueue &Q, ElemType x) { 
+    // Add your code here
+    if(Q.front == Q.rear && Q.tag == 1) return ERROR;  //当Q.f = Q.r时，并且tag为1时，是满队列状态
+
+    Q.elem[Q.rear] = x;
+    Q.rear = (Q.rear + 1) % MAXQSIZE;
+
+    if(Q.front == Q.rear) //入队成功还等了 那就是满了
+    Q.tag = 1;
+    else Q.tag = 0;
+
+    return OK;
+}
+
+Status DeCQueue(CTagQueue &Q, ElemType &x){
+   // Add your code here
+   if(Q.front == Q.rear && Q.tag == 0) return ERROR;  //当Q.f = Q.r时，并且tag为1时，是满队列状态
+
+    x = Q.elem[Q.front]; //取出队头
+    Q.front = (Q.front + 1) % MAXQSIZE;
+
+    if(Q.front == Q.rear) //出队成功还等了 那就是空了
+    Q.tag = 0;
+    else Q.tag = 1;
+
+    return OK;
+}
+
+```
+
+### DC02PE27
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+
+Status EnCQueue(CLenQueue &Q, ElemType x) { 
+    // Add your code here
+    if(Q.length == MAXQSIZE)   //满队
+    return ERROR;
+
+    Q.rear = (Q.rear + 1) % MAXQSIZE;
+    Q.elem[Q.rear] = x;
+    Q.length++;
+    //常规入队操作
+
+    return OK;
+
+}
+
+Status DeCQueue(CLenQueue &Q, ElemType &x){
+    // Add your code here
+    if(Q.length == 0)   //空队
+    return ERROR;
+
+    int front = (Q.rear - Q.length + 1 + MAXQSIZE) % MAXQSIZE;
+
+    x = Q.elem[front]; 
+    Q.length--; 
+    //常规出队操作
+
+    return OK;
+}  
+
+```
