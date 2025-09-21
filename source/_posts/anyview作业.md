@@ -719,6 +719,7 @@ SqList createList_Sq(int a[], int n)
 ### DS02E30
 
 ```cpp
+
 ```
 
 ### DS02E30  去重
@@ -769,6 +770,268 @@ void MergeList_Sq(SqList La, SqList Lb, SqList& Lc)
     }   
 
 
+
+}
+
+```
+
+### DC02PE53
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status StackEmpty_L(LStack S) 
+{    // Add your code here
+    if(S == NULL) return TRUE;
+    else return FALSE;
+
+}
+
+```
+
+### DC02PE55
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status GetTop_L(LStack S, ElemType &e) 
+{    // Add your code here
+    if(S == NULL) return ERROR;
+
+    e = S -> data;
+
+    return OK;
+
+
+}
+
+```
+
+###  DC02PE61
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status QueueEmpty_LQ(LQueue Q)
+{    // Add your code here
+    if(Q.front == NULL) return TRUE;
+    return FALSE;
+
+}
+
+```
+
+### DC02PE63
+
+```cpp
+#include "allinclude.h"  //DO NOT edit this line
+int QueueLength_LQ(LQueue Q) {
+    int count = 0;
+    QueuePtr current = Q.front;
+    while (current != NULL) {
+        count++;
+        current = current->next;
+    }
+    return count;
+}
+
+```
+
+### DC02PE71
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status ListEmpty_L(LinkList L) 
+{    // Add your code here
+
+    if(L->next == NULL) return TRUE;
+    
+    return  FALSE;
+
+}
+
+```
+### DC02PE82
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+
+LinkList MakeNode(ElemType x) {
+
+    LinkList F = (LinkList)malloc(sizeof(LNode));
+
+    if(F == NULL) return NULL;
+
+    F->data = x;
+    F->next = NULL;
+
+    return F;
+}
+
+Status InsertAfter_L(LNode *p, LNode *q) {
+    if(p == NULL || q == NULL)  //不合法
+    return ERROR;
+    q -> next = p -> next;
+    p -> next = q;
+
+    return OK;
+}
+
+LinkList Search(LinkList L, int i) {
+    // 在单链表L中查找第i个位置
+    // 判断i的合法性，i过小或者过大返回NULL
+    // 若存在则返回第i-1个位置（结点指针）
+
+    if (L == NULL || i < 1) return NULL;
+
+    LinkList p = L;
+    //不要改变链表
+    int j = 0;
+
+    while (p != NULL && j < i - 1) {
+        p = p->next;
+        j++;
+    }
+    
+    return p;
+}
+
+Status Insert_L(LinkList L, int i, ElemType e) 
+{   // Add your code here
+    LinkList p = Search(L, i);
+    if (p == NULL) {
+        return ERROR;
+    }
+
+    LinkList newNode = MakeNode(e);
+    
+    if (newNode == NULL) return ERROR;
+    
+    newNode->next = p->next;
+    p->next = newNode;
+    
+    return OK;
+}
+
+```
+
+### DC02PE75
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status ClearList_L(LinkList &L)
+{    // Add your code here
+    if (L == NULL) {
+        return ERROR;
+    }
+    LinkList p = L->next;
+    LinkList temp;
+    while (p != NULL) {
+        temp = p;
+        p = p->next;
+        free(temp);
+    }
+    L->next = NULL;
+    return OK;
+}
+
+```
+
+### DC02PE84
+
+```cpp
+#include "allinclude.h"  //DO NOT edit this line
+
+LinkList Search(LinkList L, int i) {
+    // 在单链表L中查找第i个位置
+    // 判断i的合法性，i过小或者过大返回NULL
+    // 若存在则返回第i-1个位置（结点指针）
+
+    if (L == NULL || i < 1) return NULL;
+
+    LinkList p = L;
+    //不要改变链表
+    int j = 0;
+
+    while (p != NULL && j < i - 1) {
+        p = p->next;
+        j++;
+    }
+    
+    return p;
+}
+
+Status DeleteAfter_L(LNode *p, ElemType &e)
+{
+    LNode *q;
+    if(p == NULL || p->next == NULL) return ERROR;
+    q = p->next;
+    p -> next = q -> next;
+    e = q -> data;
+
+    free(q);
+
+    return OK;
+}
+
+
+Status Delete_L(LinkList L, int i, ElemType &e) 
+{   // Add your code here
+    
+    LinkList p = Search(L, i);
+    if (p == NULL || p->next == NULL) {
+        return ERROR;
+    }
+    
+    return DeleteAfter_L(p, e);
+}
+
+```
+
+### DC02PE73
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+Status DestroyList_L(LinkList &L) 
+{    // Add your code here
+    if (L == NULL) return OK; 
+    
+    LinkList p = L;
+    LinkList temp;
+    
+    while (p != NULL) {
+        temp = p;
+        p = p->next;
+        free(temp);
+    }
+    
+    L = NULL; 
+    return OK;
+}
+
+```
+
+### DC02PE77
+
+```cpp
+
+#include "allinclude.h"  //DO NOT edit this line
+int ListLength_L(LinkList L) 
+{   // Add your code here
+    if (L == NULL) return -1;
+
+    int j = 0;
+    LinkList p = L;
+    while (p != NULL) {
+        p = p->next;
+        j++;
+    }
+
+    return j - 1;
 
 }
 
