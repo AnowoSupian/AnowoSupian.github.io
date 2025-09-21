@@ -550,9 +550,9 @@ int getMainElement(SqList L);
 
 int main() 
 {
-    int aa[6] = { 1, 2, 3, 4, 5, 8};
+    int aa[6] = { 1, 1, 1, 1, 1, 1};
     SqList La = createList_Sq(aa, 6);
-    int ab[6] = { 2, 5, 7, 9, 10, 12 };
+    int ab[6] = { 2, 5, 5, 5, 10, 10 };
     SqList Lb = createList_Sq(ab, 6);
 
     //Part1：两表合并
@@ -587,11 +587,11 @@ int main()
 //练习4：将顺序表La和Lb合并为Lc
 void MergeList_Sq(SqList La, SqList Lb, SqList& Lc) 
 {
-    int i = 0, j = 0;   
-    ElemType ai, bj;
+    int i = 0, j = 0,k = 0;   
+    ElemType ai, bj, ck;
     
     //练习4.1：创建空表Lc 
-    InitList_Sq(Lc, La.length + Lb.length + 5, 10);
+    InitList_Sq(Lc, ListLength_Sq(La) + ListLength_Sq(Lb) + 5, 10);
     // if ( != OK) {
     //     printf("Error: Failed to initialize list Lc\n");
     //     return;
@@ -607,15 +607,16 @@ void MergeList_Sq(SqList La, SqList Lb, SqList& Lc)
 
         GetElem_Sq(Lb, j+1, bj);
 
-        if(ai <= bj)  Append_Sq(Lc,ai), i++;  //顺序性
-        else Append_Sq(Lc,bj), j++;
-
+        if(ai < bj ){ if(ai != Lc.elem[ListLength_Sq(Lc)-1]) Append_Sq(Lc,ai); i++;  }//顺序性
+        else {if(bj != Lc.elem[ListLength_Sq(Lc)-1])  Append_Sq(Lc,bj); j++;}
     }
+
 
     //练习4.3：处理“La未空，但Lb已空”的情况
     while (i < La.length) { 
         GetElem_Sq(La, i+1, ai);
-        Append_Sq(Lc,ai), i++;
+        if(ai != Lc.elem[ListLength_Sq(Lc)-1])
+        Append_Sq(Lc,ai); i++;
        //Add your code here
     }
 
@@ -623,8 +624,11 @@ void MergeList_Sq(SqList La, SqList Lb, SqList& Lc)
     //Add your code here  
     while (j < Lb.length) {
         GetElem_Sq(Lb, j+1, bj);
-        Append_Sq(Lc,bj), j++;
+        if(bj != Lc.elem[ListLength_Sq(Lc)-1])
+        Append_Sq(Lc,bj); j++;
     }   
+
+
 
 }
 
